@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="color-scheme" content="light only"/>
+	<meta name="supported-color-schemes" content="light"/>
+    <title>청색편이</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+     <style>
+        font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400 600 900;
+    font-style: normal;
+}
+
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+  background-color: #113340 !important;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+section.imgbg {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+
+
+
+html{margin: 0;}
+body{margin: 0; background-color: white;}
+section{position: absolute; width: 100vw; height: 150vh; margin: 0; overflow: hidden; z-index: 3; position: relative;}
+
+.imgbg{width: 100vw; height: 200vh; margin: 0; background-size: cover; background-attachment: fixed;}
+#title{position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
+    margin: 0; background-color: white; z-index: 11; mix-blend-mode: screen; 
+    display: grid; grid-template-columns: 20vw 60vw 20vw; grid-template-rows: 30% 40% 30%; justify-items: center;
+    grid-template-areas:
+		". ttlogo ."
+		"   .    ttlogo    .   "
+		"   .     ttlogo      .   ";}
+#info{position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
+    margin: 0; z-index: 12;
+    display: grid; grid-template-columns: 20vw 60vw 20vw; grid-template-rows: 30% calc(70% - 80px) 80px; grid-template-areas:
+		"numb . credit"
+		"   when    .    credit   "
+		"   cplogo     .      caption   ";}
+#numb{grid-area: numb; font-size: 20px; font-weight: 600; color: #98CADA; margin-top: 80px;margin-left: 80px; line-height: 150%;}
+#when{
+  grid-area: when;
+  font-size: 16px;
+  font-weight: 400;
+  color: #113340;
+  margin-left: 80px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}#credit{grid-area: credit; display: grid; grid-template-columns: 30% 70%; grid-template-areas:"job name";
+font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top: 80px;}
+#caption{grid-area: caption; font-size: 14px; font-weight: 400; color: #113340; margin-right: 80px; line-height: 150%; justify-items: baseline;}
+
+
+.ttlogo{ grid-area: ttlogo; content: url(./resource/title.svg); height:calc(100vh - 160px); margin: 80px; align-items: center; transform: translateX(-50px) perspective(10000px);   transform-origin: center center;
+    transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+#bg1{ background-image: url("./resource/after.jpeg"); z-index: 11;}
+#bg2{background-image: url("./resource/before.jpeg"); z-index: 10;}
+#bg3{background-image: url("./resource/night.jpeg"); z-index: 10;}
+#bg4{background-image: url("./resource/after.jpeg"); z-index: 10;}
+#bg5{
+  background-image: url("./resource/after2.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: auto;
+}
+#bg5::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(17,51,64,0.5);
+  z-index: 1;
+  pointer-events: none; /* 클릭 방해 안 함 */
+}
+
+#bg5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(17,51,64,0) 0%,
+    #113340 100%
+  );
+}
+#bg6{background-color: #113340; height: 100vh;}
+
+#bg2, #bg4 {
+  min-height: 160vh;       /* or 180~200vh, 내용에 맞춰 조절 */
+  overflow: visible;       /* 이 섹션에서는 hidden 풀기 */
+   padding-top: 80px; 
+}
+
+.col{     padding-bottom: 80px; position: sticky; top: 80px; align-items: center; margin: 0px; padding-left: 80px; display: flex; align-items: flex-start; mix-blend-mode: overlay;}
+.synop{margin-left: 40px; font-size: 20px; line-height: 150%; color: #CBE0E3; mix-blend-mode: overlay;}
+
+
+.col-1{width: 20%;padding: 40px;}
+.col-2{width: 40%;padding: 40px;}
+.col-3{width: 60%;padding: 40px;}
+.col-4{width: 80%;padding: 40px;}
+.col-5{width: 100%;padding: 40px;}
+
+.footer{align-items: center; display: flex;}
+.footer_cap{width: 50%; color: #CBE0E3; line-height: 150%; margin-left: 10px; margin-top: 40px;}
+#btn{
+  border: 1px solid #CBE0E3;
+  width: 100%;
+  height: 80px;
+  border-radius: 16px;
+  text-align: center;
+  color: #CBE0E3;
+  line-height: 80px;
+  margin-top: 80px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#btn:hover {
+  background-color: #CBE0E3;
+  color: #113340;
+}
+#star {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: url('./resource/star.svg') no-repeat center / contain;
+  mix-blend-mode: plus-lighter;
+  opacity: 0;                /* hidden by default */
+  pointer-events: none;      /* non-interactive */
+  transition: opacity .35s ease; /* fade in/out */
+  z-index: 999;
+}
+
+/* ===== Scroll Snap Fixes (added) ===== */
+/* Make sure the actual scroll container has snap enabled */
+html { 
+  scroll-snap-type: y mandatory; /* Some browsers prefer this on html */
+}
+
+/* Ensure each section is exactly one viewport tall so it snaps like pages */
+section.imgbg {
+  height: 100vh;          /* override earlier 150vh/200vh with a fixed viewport height */
+  min-height: 100vh;      /* keep safety */
+}
+
+/* If there's a fixed header in the future, reserve space so snap aligns nicely */
+/* body { scroll-padding-top: 0; } */
+
+/* iOS/Safari workaround: background-attachment: fixed can break snapping */
+@supports (-webkit-touch-callout: none) {
+  .imgbg { background-attachment: scroll; }
+}
+
+/* Optional: tighten the feel of snapping on momentum scroll */
+section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
+
+/* Selection colors only inside bg2 and bg4 */
+#bg2 ::selection,
+#bg4 ::selection { 
+  background: #113340; /* deep teal */
+  color: #CBE0E3;      /* light sky */
+}
+
+/* Firefox prefix */
+#bg2 ::-moz-selection,
+#bg4 ::-moz-selection { 
+  background: #113340;
+  color: #CBE0E3;
+}
+     </style>
+ </head>
+ <body>
+    <section class="imgbg" id="bg1">
+        <!-- <div style="content: url(./resource/title.png);"></div> -->
+         <div id="title">
+            <div class="ttlogo"></div>
+         </div>
+         <div id="info">
+            <div id="numb"> 서울과학기술대학교<br>중앙연극동아리 어의실험극회<br>제92회 정기공연</div>
+            <div id="when"> 서울과학기술대학교<br>중앙연극동아리 어의실험극회<br>제92회 정기공연</div>         
+            <div style="grid-area: cplogo;     height: 40px;  content: url(./resource/cplogo.svg); margin-left: 80px;"></div>
+            <div id="credit"> 
+                <div style="font-weight: 600; grid-area: job;">연출<br><br>조연출<br><br><br>배우</div> 
+                <div style="grid-area: name;">이태경<br><br>강지민<br>손예지<br><br>김민경<br>이솔<br>박훈양<br>이은수<br>조승진</div>
+
+            </div>         
+         
+            <div id="caption"> *  천체가 관측자에게 빠르게 접근할때<br>    나타나는 파장 변화</div>         
+
+            <div class="ttlogo"></div>
+
+
+
+         </div>
+    </section>
+    <section class="imgbg" id="bg2">
+        <!-- <div style="position: fixed; top: 0; left: 0; z-index: 11; width: 100px; height: 100px; content: url(./resource/before.png);"></div> -->
+        <div class="col">
+            <div style="mix-blend-mode: overlay; content: url(./resource/2040.svg);"></div>
+            <div class="synop">소행성 충돌 10년 전, 멸망을 앞둔 세계.<br>지영은 끝이 정해진 시간 속에서, <br>아이를 낳을 것인가를 두고 마지막 선택 앞에 선다.</div>
+        </div>
+        </section>
+    <section class="imgbg" id="bg3">
+        <div style=" margin-top: 100px; display: flex; justify-content: center; ">
+            <div id="star"></div>        
+        </div>    
+    </section>
+    <section class="imgbg" id="bg4">
+        <div class="col">
+             <div style="mix-blend-mode: overlay; content: url(./resource/2060.svg);"></div>
+             <div class="synop" style="color: #113340;">소행성 충돌 10년 후, 문명이 붕괴된 세계.<br> 기억을 잃은 채 기적적으로 생존한 소녀는 <br>반려로봇 '아루'와 기억을 되찾기 위해 고군분투 한다.</div>
+        </div>
+    </section>
+    <section class="imgbg" id="bg5">
+        <div style="content: url(./resource/profile.svg); margin: auto; margin-top: 200px; margin-bottom: 300px; position: relative; z-index: 2;"></div>
+    </section>
+    <section class="imgbg" id="bg6">
+        <div style="width: 300px; margin: auto; margin-top: 200px; "><div style="content: url(./resource/footer.svg);"></div>
+            <div class="footer">
+                <div class="footer_cap">서울과학기술대학교<br>제1학생회관 3층<br>어의소극장</div>
+                <div class="footer_cap">2025년 9월<br>3-5일  19:00<br>6일  14:00, 18:30</div>
+            </div>
+            <div id="btn">예매하기</div>
+        </div>
+    </section>
+ </body>
+ </html>
+
+
+ 
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const constrain = 300; // 기울기 민감도
+  const moveFactor = 20; // XY 이동 민감도(px)
+  const mouseOverContainer = window;
+  const ex1Layer = document.querySelector('.ttlogo');
+
+  function transforms(x, y, el) {
+    const box = el.getBoundingClientRect();
+
+    // 기울기 계산
+    const calcX = -(y - box.top  - box.height / 2) / constrain;
+    const calcY =  (x - box.left - box.width  / 2) / constrain;
+
+    // XY 이동 계산
+    const moveX = (x - (box.left + box.width / 2)) / moveFactor;
+    const moveY = (y - (box.top  + box.height / 2)) / moveFactor;
+
+    return `
+      perspective(1000px)
+      rotateX(${calcX}deg)
+      rotateY(${calcY}deg)
+      translateX(${moveX}px)
+      translateY(${moveY}px)
+    `;
+  }
+
+  function transformElement(el, xyEl) {
+    el.style.transform = transforms(...xyEl);
+  }
+
+  mouseOverContainer.addEventListener('mousemove', (e) => {
+    const xy = [e.clientX, e.clientY];
+    const position = xy.concat([ex1Layer]);
+    window.requestAnimationFrame(() => transformElement(ex1Layer, position));
+  });
+});
+
+
+window.history.scrollRestoration = 'manual'; // 브라우저 기본 스크롤 복원 기능 끄기
+window.scrollTo(0, 0); // 로드 시 맨 위로 이동
+
+// Show the fixed #star only when #bg3 is in view
+(() => {
+  const star = document.getElementById('star');
+  const bg3  = document.getElementById('bg3');
+  if (!star || !bg3) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    const entry = entries[0];
+    // When at least 60% of bg3 is visible (e.g., snapped), fade star in
+    if (entry.isIntersecting) {
+      star.style.opacity = '1';
+    } else {
+      star.style.opacity = '0';
+    }
+  }, { threshold: 0.6 });
+
+  observer.observe(bg3);
+})();
+
+
+ </script>
