@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+<meta http-equiv="Content-Language" content="ko">
+<link rel="canonical" href="https://어의실험극회.kr/">
+<meta property="og:url" content="https://어의실험극회.kr/">
+<meta property="og:image" content="https://어의실험극회.kr/resource/og-image.jpg">
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="color-scheme" content="light only"/>
@@ -9,6 +13,25 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
       <link rel="icon" type="image/x-icon" href="./resource/footer.svg">
       <link rel="apple-touch-icon" href="./resource/footer.svg">
+
+    <!-- Open Graph (for KakaoTalk, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="청색편이">
+    <meta property="og:title" content="청색편이 – 제92회 정기공연">
+    <meta property="og:description" content="서울과학기술대학교 중앙연극동아리 어의실험극회 제92회 정기공연">
+    <!-- NOTE: Prefer an absolute URL for best compatibility -->
+    <meta property="og:image" content="./resource/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="청색편이 – 제92회 정기공연">
+    <meta name="twitter:description" content="서울과학기술대학교 중앙연극동아리 어의실험극회 제92회 정기공연">
+    <!-- Same image as OG -->
+    <meta name="twitter:image" content="./resource/og-image.jpg">
 
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
      <style>
@@ -95,6 +118,9 @@ html, body {
   scroll-behavior: smooth;
   background-color: #113340 !important;
   word-break: keep-all;
+  
+  transform-origin: top left;
+
 }
 
 body {
@@ -150,7 +176,7 @@ section{position: absolute; width: 100vw; height: 100vh; margin: 0; overflow: hi
   justify-content: flex-start;
 }#credit{grid-area: credit; display: grid; grid-template-columns: 30% 70%; grid-template-areas:"job name";
 font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top: 80px;}
-#caption{grid-area: caption; font-size: 14px; font-weight: 400; color: #113340; margin-right: 80px; line-height: 150%; justify-items: baseline;}
+#caption{ grid-area: caption; font-size: 14px; font-weight: 400; color: #113340; margin-right: 80px; line-height: 150%; justify-items: baseline;}
 #cplogo{grid-area: cplogo;     height: 40px;  content: url(./resource/cplogo.svg); margin-left: 80px;}
 
 .ttlogo{ grid-area: ttlogo; content: url(./resource/title.svg); height:calc(100vh - 160px); margin: 80px; align-items: center; transform: translateX(-50px) perspective(10000px);   transform-origin: center center;
@@ -208,7 +234,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
 .year{     padding: 80px; position: sticky; align-items: center; margin: 0px; display: flex; align-items: flex-start; mix-blend-mode: overlay; width: calc(100vw - 160px);}
 
 .col{     padding: 80px; position: sticky; top: 80px; align-items: center; margin: 0px; padding-top: 0px; display: flex; align-items: flex-start; mix-blend-mode: overlay; width: calc(100vw - 160px);}
-.synop{margin-left: 40px; font-size: 20px; line-height: 150%; color: #CBE0E3; mix-blend-mode: overlay;}
+.synop{margin-left: 40px; font-weight: 600; font-size: 20px; line-height: 150%; color: #CBE0E3; mix-blend-mode: overlay;}
 
 
 .col-1{width: 20%;padding: 40px;}
@@ -241,7 +267,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  height: 200px;
+  height: 360px;
   background: url('./resource/star.svg') no-repeat center / contain;
   mix-blend-mode: plus-lighter;
   opacity: 0;                /* hidden by default */
@@ -287,7 +313,54 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
   color: #CBE0E3;
 }
 
+#footer_col{display: flex; flex-direction: column; height: 100vh; justify-content: center; width: 300px; margin: auto;}
+#book1, #book2 { cursor: pointer; }
+#book2{margin-top: 20px;}
 
+
+
+
+
+@media (max-width: 1024px) {
+
+
+   #title {
+    width: 100vw;
+    margin: 0;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 15% 75% 10%;
+    grid-template-areas:
+	" . . "
+  "ttlogo ttlogo"
+  " .  . ";
+align-items: start;
+   }
+.ttlogo{height: 75vh; width: calc(100vw - 160px); margin: auto;}
+#credit{display: none;}
+#info{
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+        "numb when"
+        " . . "
+        " cplogo caption ";
+}
+#when{margin-top: 40px; margin-left: 0; align-items: normal;}
+#numb{margin-top: 40px;}
+.year{padding: 24px; width: calc(100vw - 48px);
+  flex-direction: column;}
+#before, #after {width: 100%;}
+
+
+  .synop {
+    margin-left: 0;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+  #profile{content: url(./resource/m_profile.svg); max-width: 400px;}
+
+  #footer_col{max-width: 300px;}
+  .btn{margin-top: 48px;}
+}
 
 /*---------------mobile---------------*/
 /* === Mobile (<= 768px) === */
@@ -300,22 +373,19 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
 
   /* 타이틀 영역: 그리드 → 단일 컬럼 느낌 */
   #title {
-    width: 100vw;
-    margin: 0;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-	" . . "
-  "title title"
+
+            width: 100vw;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 10% 80% 10%;
+        grid-template-areas:
+        " . . "
+  "ttlogo ttlogo"
   " .  . ";
 
   }
   .ttlogo {
-    height: 48vh;
     width: 90vw;
     margin: 5vw;
-    top: 26vh;
-    position: absolute;
     transform: none;                 /* 모바일에선 3D 기울임 제거 */
     transition: none;
   }
@@ -325,12 +395,13 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
     width: calc(100vw - 48px);
     margin: 24px;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto;
+    grid-template-rows: 15% 75% 10%;
     grid-template-areas:
 	" numb when "
   " . . "
   " cplogo  cplogo ";
     align-items: start;
+    grid-template-rows: 15vh 75vh 10vh;
   }
   #numb, #when, #credit, #caption { margin: 0; }
   #caption{display: none;}
@@ -348,17 +419,7 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
     padding: 24px 16px;
     align-items: flex-start;
   }
-  .year{padding: 24px; width: calc(100vw - 48px);
-  flex-direction: column;}
-#before, #after {width: 100%;}
-
-
-  .synop {
-    margin-left: 0;
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-  }
+  .synop{font-size: 16px;}
 
   /* 버튼 터치 영역/비주얼 */
   .btn {
@@ -370,14 +431,15 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
   }
 
   /* 스타: 모바일에선 시야 분산 줄이려 숨김(원하면 지워도 됨) */
-  #star { display: none; }
+  #star { height: 240px;}
 
   /* 텍스트 크기 약간 다운(선택) */
   #numb { font-size: 18px; }
   #when, #credit, #caption { font-size: 14px; }
 
-#profile{width: calc(100vw - 48px); max-width: 500px; min-width: 330px;  content: url(./resource/m_profile.svg);}
+#profile{width: calc(100vw - 48px); min-width: 330px;  content: url(./resource/m_profile.svg);}
 
+#footer_col{width: calc(100vw - 48px); }
 }
 
 
@@ -393,20 +455,51 @@ html, body { height: 100%; overflow: hidden; }
 }
 
 /* --- Lock layout width to 350px on ultra-narrow viewports (overflow instead of shrink) --- */
-@media (max-width: 349.98px) {
-  /* 레이아웃이 뷰포트보다 넓어지면 가로 스크롤 허용 */
-  html, body { overflow-x: auto; }
-  #scroller { width: 350px; min-width: 350px; overflow-x: auto; }
-
-  /* 100vw로 줄어들지 않게 핵심 컨테이너 강제 고정 */
-  section,
-  section.imgbg,
-  #title,
-  #info { width: 350px !important; }
+@media (max-width: 350px) {
+  body {
+    transform: scale(calc(100vw / 350));
+    width: 350px;
+  }
 }
      </style>
+<style>
+/* === Preloader (covers entire viewport until all assets load) === */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #113340;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #CBE0E3;
+  font-weight: 600;
+  z-index: 99999;
+  opacity: 1;
+}
+#preloader.fade-out {
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+}
+#preloader .spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid rgba(203,224,227,0.35);
+  border-top-color: #CBE0E3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+#preloader .loading-text { margin: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
  </head>
  <body>
+<div id="preloader">
+  <div class="spinner"></div>
+  <p class="loading-text">Loading…</p>
+</div>
 <div id="scroller">
     <section class="imgbg" id="bg1">
         <!-- <div style="content: url(./resource/title.png);"></div> -->
@@ -451,82 +544,186 @@ html, body { height: 100%; overflow: hidden; }
         <div id="profile"></div>
     </section>
     <section class="imgbg" id="bg6">
-        <div style="width: 300px; margin: auto; margin-top: 200px; "><div style="content: url(./resource/footer.svg);"></div>
+        <div id="footer_col"><div style="content: url(./resource/footer.svg);"></div>
             <div class="footer">
                 <div class="footer_cap">서울과학기술대학교<br>제1학생회관 3층<br>어의소극장</div>
                 <div class="footer_cap">2025년 9월<br>3-5일  19:00<br>6일  14:00, 18:30</div>
             </div>
-            <div class="btn">일반 예매</div>
-            <div class="btn">노원구민 예매</div>
+            <div class="btn" id="book1">일반 예매</div>
+            <div class="btn" id="book2">노원구민 예매</div>
         </div>
     </section>
  </div>
- </body>
- </html>
-
-
- 
- <script>
+<script>
+// 링크 새 탭으로 열기
 document.addEventListener('DOMContentLoaded', () => {
+  const book1 = document.getElementById('book1');
+  const book2 = document.getElementById('book2');
+
+  function bind(btn, url) {
+    if (!btn) return;
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    const open = () => window.open(url, '_blank', 'noopener,noreferrer');
+    btn.addEventListener('click', open);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+      }
+    });
+  }
+
+  bind(book1, 'https://forms.gle/b6YnXp4om7Mfb1rHA');
+  bind(book2, 'https://forms.gle/Av4WiJr5UPbTdiCo6');
+});
+
+// === Tilt + star visibility (moved in from stray script) ===
+{
   const constrain = 300; // 기울기 민감도
   const moveFactor = 20; // XY 이동 민감도(px)
-  const mouseOverContainer = window;
   const ex1Layer = document.querySelector('.ttlogo');
+  if (ex1Layer) {
+    // Detect touch/mobile (no hover, coarse pointer or touch-capable device)
+    const isTouchEnv = (
+      (window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches) ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
 
-
-  function transforms(x, y, el) {
-    const box = el.getBoundingClientRect();
-
-    // 기울기 계산
-    const calcX = -(y - box.top  - box.height / 2) / constrain;
-    const calcY =  (x - box.left - box.width  / 2) / constrain;
-
-    // XY 이동 계산
-    const moveX = (x - (box.left + box.width / 2)) / moveFactor;
-    const moveY = (y - (box.top  + box.height / 2)) / moveFactor;
-
-    return `
-      perspective(1000px)
-      rotateX(${calcX}deg)
-      rotateY(${calcY}deg)
-      translateX(${moveX}px)
-      translateY(${moveY}px)
-    `;
+    if (!isTouchEnv) {
+      function transforms(x, y, el) {
+        const box = el.getBoundingClientRect();
+        const calcX = -(y - box.top  - box.height / 2) / constrain;
+        const calcY =  (x - box.left - box.width  / 2) / constrain;
+        const moveX = (x - (box.left + box.width / 2)) / moveFactor;
+        const moveY = (y - (box.top  + box.height / 2)) / moveFactor;
+        return `
+          perspective(1000px)
+          rotateX(${calcX}deg)
+          rotateY(${calcY}deg)
+          translateX(${moveX}px)
+          translateY(${moveY}px)
+        `;
+      }
+      window.addEventListener('mousemove', (e) => {
+        const xy = [e.clientX, e.clientY, ex1Layer];
+        window.requestAnimationFrame(() => { ex1Layer.style.transform = transforms(...xy); });
+      });
+    } else {
+      // On touch/mobile, make sure no transform updates happen
+      ex1Layer.style.transform = 'none';
+    }
   }
 
-  function transformElement(el, xyEl) {
-    el.style.transform = transforms(...xyEl);
-  }
+  window.history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
 
-  mouseOverContainer.addEventListener('mousemove', (e) => {
-    const xy = [e.clientX, e.clientY];
-    const position = xy.concat([ex1Layer]);
-    window.requestAnimationFrame(() => transformElement(ex1Layer, position));
+  const star = document.getElementById('star');
+  const bg3  = document.getElementById('bg3');
+  if (star && bg3) {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        star.style.opacity = '1';
+      } else {
+        star.style.opacity = '0';
+      }
+    }, { threshold: 0.6 });
+    observer.observe(bg3);
+  }
+}
+
+// === Typing effect for .synop when its section snaps into view ===
+(() => {
+  const synops = Array.from(document.querySelectorAll('.synop'));
+  if (!synops.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const timers = new Map();
+
+  // Ensure all relevant sections have no data-synop-active attribute initially
+  const sections = new Set(
+    synops.map(el => el.closest('section.imgbg')).filter(Boolean)
+  );
+  sections.forEach(sec => {
+    if (sec) sec.removeAttribute('data-synop-active');
   });
+
+  // store original and clear
+  synops.forEach(el => {
+    if (el.dataset.synopPrepared) return;
+    el.dataset.synopPrepared = '1';
+    el.dataset.originalHtml = el.innerHTML;
+    el.innerHTML = '';
+  });
+
+  function typeIn(el) {
+    if (el.dataset.typing === '1') return;
+    el.dataset.typing = '1';
+    const original = (el.dataset.originalHtml || '').replace(/\r\n|\r|\n/g, '\n');
+    const text = original.replace(/<br\s*\/?>(\s*)/gi, '\n');
+    let i = 0;
+    const baseDelay = prefersReduced ? 0 : 22;
+    function step() {
+      if (!el.dataset.typing) return;
+      const chunk = text.slice(0, i);
+      el.innerHTML = chunk.replace(/\n/g, '<br>');
+      if (i >= text.length) { el.dataset.typing = ''; timers.delete(el); return; }
+      i++;
+      const prev = text[i - 1];
+      let delay = baseDelay;
+      if (prev === '\n') delay += 120; else if (/[.,!?…]/.test(prev)) delay += 60;
+      const id = window.setTimeout(step, delay);
+      timers.set(el, id);
+    }
+    step();
+  }
+
+  function reset(el) {
+    const id = timers.get(el); if (id) window.clearTimeout(id);
+    timers.delete(el);
+    el.dataset.typing = '';
+    el.innerHTML = '';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const section = entry.target;
+      const synop = section.querySelector('.synop');
+      if (!synop) return;
+
+      if (prefersReduced) {
+        if (entry.isIntersecting) {
+          synop.innerHTML = (synop.dataset.originalHtml || '');
+        }
+        return;
+      }
+
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+        if (section.dataset.synopActive === 'true') return; // already active, skip
+        section.dataset.synopActive = 'true';
+        reset(synop);
+        typeIn(synop);
+      } else {
+        section.dataset.synopActive = 'false';
+        reset(synop);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  sections.forEach(sec => observer.observe(sec));
+})();
+// === Hide preloader after all assets (images, fonts) are loaded ===
+window.addEventListener('load', function() {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+  preloader.classList.add('fade-out');
+  setTimeout(() => { preloader.style.display = 'none'; }, 550);
 });
 
 
-window.history.scrollRestoration = 'manual'; // 브라우저 기본 스크롤 복원 기능 끄기
-window.scrollTo(0, 0); // 로드 시 맨 위로 이동
 
-// Show the fixed #star only when #bg3 is in view
-(() => {
-  const star = document.getElementById('star');
-  const bg3  = document.getElementById('bg3');
-  if (!star || !bg3) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    const entry = entries[0];
-    // When at least 60% of bg3 is visible (e.g., snapped), fade star in
-    if (entry.isIntersecting) {
-      star.style.opacity = '1';
-    } else {
-      star.style.opacity = '0';
-    }
-  }, { threshold: 0.6 });
-
-  observer.observe(bg3);
-})();
-
-
- </script>
+</script>
+</body>
+</html>
