@@ -7,13 +7,83 @@
 	<meta name="supported-color-schemes" content="light"/>
     <title>청색편이</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <link rel="icon" type="image/x-icon" href="./resource/footer.svg">
+      <link rel="apple-touch-icon" href="./resource/footer.svg">
+
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
      <style>
-        font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400 600 900;
+        /* Pretendard (Safari-safe): variable first, static fallbacks */
+        @font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 100;
     font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Thin.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Thin.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-ExtraLight.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Light.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Regular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Medium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-SemiBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-ExtraBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Black.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo-Black.ttf') format('truetype');
 }
 
 
@@ -21,9 +91,18 @@
 html, body {
   height: 100%;
   margin: 0;
+  min-width: 350px;
   scroll-behavior: smooth;
-  overscroll-behavior-y: contain;
   background-color: #113340 !important;
+  word-break: keep-all;
+}
+
+body {
+  font-family: 'Pretendard', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+               'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;     /* Safari/macOS */
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;     
 }
 
 body {
@@ -40,10 +119,11 @@ section.imgbg {
 
 
 html{margin: 0;}
-body{margin: 0; background-color: white;}
-section{position: absolute; width: 100vw; height: 150vh; margin: 0; overflow: hidden; z-index: 3; position: relative;}
+body{margin: 0;}
+section{position: absolute; width: 100vw; height: 100vh; margin: 0; overflow: hidden; z-index: 3; position: relative;}
 
-.imgbg{width: 100vw; height: 200vh; margin: 0; background-size: cover; background-attachment: fixed;}
+.imgbg{width: 100vw; height: 100vh; margin: 0; background-size: cover; background-attachment: fixed;background-position: calc(60%) center;
+ }
 #title{position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
     margin: 0; background-color: white; z-index: 11; mix-blend-mode: screen; 
     display: grid; grid-template-columns: 20vw 60vw 20vw; grid-template-rows: 30% 40% 30%; justify-items: center;
@@ -71,7 +151,7 @@ section{position: absolute; width: 100vw; height: 150vh; margin: 0; overflow: hi
 }#credit{grid-area: credit; display: grid; grid-template-columns: 30% 70%; grid-template-areas:"job name";
 font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top: 80px;}
 #caption{grid-area: caption; font-size: 14px; font-weight: 400; color: #113340; margin-right: 80px; line-height: 150%; justify-items: baseline;}
-
+#cplogo{grid-area: cplogo;     height: 40px;  content: url(./resource/cplogo.svg); margin-left: 80px;}
 
 .ttlogo{ grid-area: ttlogo; content: url(./resource/title.svg); height:calc(100vh - 160px); margin: 80px; align-items: center; transform: translateX(-50px) perspective(10000px);   transform-origin: center center;
     transition: transform 0.1s ease-out;
@@ -114,15 +194,20 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
     #113340 100%
   );
 }
+#profile{width: calc(100vw - 160px); content: url(./resource/profile.svg); margin: auto; margin-top: 200px; margin-bottom: 300px; position: relative; z-index: 2;}
+
+
 #bg6{background-color: #113340; height: 100vh;}
 
-#bg2, #bg4 {
-  min-height: 160vh;       /* or 180~200vh, 내용에 맞춰 조절 */
-  overflow: visible;       /* 이 섹션에서는 hidden 풀기 */
-   padding-top: 80px; 
-}
 
-.col{     padding-bottom: 80px; position: sticky; top: 80px; align-items: center; margin: 0px; padding-left: 80px; display: flex; align-items: flex-start; mix-blend-mode: overlay;}
+
+
+#before{ width: 60vw; mix-blend-mode: overlay; content: url(./resource/2040.svg);}
+#after{ width: 60vw; mix-blend-mode: overlay; content: url(./resource/2060.svg);}
+
+.year{     padding: 80px; position: sticky; align-items: center; margin: 0px; display: flex; align-items: flex-start; mix-blend-mode: overlay; width: calc(100vw - 160px);}
+
+.col{     padding: 80px; position: sticky; top: 80px; align-items: center; margin: 0px; padding-top: 0px; display: flex; align-items: flex-start; mix-blend-mode: overlay; width: calc(100vw - 160px);}
 .synop{margin-left: 40px; font-size: 20px; line-height: 150%; color: #CBE0E3; mix-blend-mode: overlay;}
 
 
@@ -134,7 +219,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
 
 .footer{align-items: center; display: flex;}
 .footer_cap{width: 50%; color: #CBE0E3; line-height: 150%; margin-left: 10px; margin-top: 40px;}
-#btn{
+.btn{
   border: 1px solid #CBE0E3;
   width: 100%;
   height: 80px;
@@ -146,7 +231,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   transition: background-color 0.3s, color 0.3s;
 }
 
-#btn:hover {
+.btn:hover {
   background-color: #CBE0E3;
   color: #113340;
 }
@@ -201,9 +286,128 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
   background: #113340;
   color: #CBE0E3;
 }
+
+
+
+/*---------------mobile---------------*/
+/* === Mobile (<= 768px) === */
+@media (max-width: 768px) {
+
+  /* 섹션: 여백 조금, 세로 꽉 찬 느낌 유지 */
+  section.imgbg {
+    min-height: 100vh; /* 페이지감 유지 */
+  }
+
+  /* 타이틀 영역: 그리드 → 단일 컬럼 느낌 */
+  #title {
+    width: 100vw;
+    margin: 0;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+	" . . "
+  "title title"
+  " .  . ";
+
+  }
+  .ttlogo {
+    height: 48vh;
+    width: 90vw;
+    margin: 5vw;
+    top: 26vh;
+    position: absolute;
+    transform: none;                 /* 모바일에선 3D 기울임 제거 */
+    transition: none;
+  }
+
+  /* 인포 영역: 단일 컬럼으로 재배치 */
+  #info {
+    width: calc(100vw - 48px);
+    margin: 24px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+	" numb when "
+  " . . "
+  " cplogo  cplogo ";
+    align-items: start;
+  }
+  #numb, #when, #credit, #caption { margin: 0; }
+  #caption{display: none;}
+  #when { margin-left: 0px;}
+  #credit {
+   display: none;
+  }
+  #cplogo{margin: auto; margin-bottom: 60px;}
+
+  /* 스티키 섹션: 모바일에선 고정보다 흐르게 */
+  #bg2, #bg4 { min-height: auto; }
+  .col {
+    position: static;   /* sticky 해제 */
+    top: auto;
+    padding: 24px 16px;
+    align-items: flex-start;
+  }
+  .year{padding: 24px; width: calc(100vw - 48px);
+  flex-direction: column;}
+#before, #after {width: 100%;}
+
+
+  .synop {
+    margin-left: 0;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* 버튼 터치 영역/비주얼 */
+  .btn {
+    height: 56px;
+    line-height: 56px;
+    border-radius: 12px;
+    margin-top: 40px;
+    font-size: 16px;
+  }
+
+  /* 스타: 모바일에선 시야 분산 줄이려 숨김(원하면 지워도 됨) */
+  #star { display: none; }
+
+  /* 텍스트 크기 약간 다운(선택) */
+  #numb { font-size: 18px; }
+  #when, #credit, #caption { font-size: 14px; }
+
+#profile{width: calc(100vw - 48px); max-width: 500px; min-width: 330px;  content: url(./resource/m_profile.svg);}
+
+}
+
+
+
+/* --- Dedicated scroll container to eliminate viewport overscroll bounce --- */
+html, body { height: 100%; overflow: hidden; }
+#scroller {
+  height: 100vh;
+  overflow-y: auto;
+  overscroll-behavior-y: contain; /* prevent bounce at top/bottom */
+  scroll-snap-type: y mandatory;  /* move snap to the container */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+}
+
+/* --- Lock layout width to 350px on ultra-narrow viewports (overflow instead of shrink) --- */
+@media (max-width: 349.98px) {
+  /* 레이아웃이 뷰포트보다 넓어지면 가로 스크롤 허용 */
+  html, body { overflow-x: auto; }
+  #scroller { width: 350px; min-width: 350px; overflow-x: auto; }
+
+  /* 100vw로 줄어들지 않게 핵심 컨테이너 강제 고정 */
+  section,
+  section.imgbg,
+  #title,
+  #info { width: 350px !important; }
+}
      </style>
  </head>
  <body>
+<div id="scroller">
     <section class="imgbg" id="bg1">
         <!-- <div style="content: url(./resource/title.png);"></div> -->
          <div id="title">
@@ -211,17 +415,15 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
          </div>
          <div id="info">
             <div id="numb"> 서울과학기술대학교<br>중앙연극동아리 어의실험극회<br>제92회 정기공연</div>
-            <div id="when"> 서울과학기술대학교<br>중앙연극동아리 어의실험극회<br>제92회 정기공연</div>         
-            <div style="grid-area: cplogo;     height: 40px;  content: url(./resource/cplogo.svg); margin-left: 80px;"></div>
+            <div id="when"> 2025년 9월 3일 - 6일<br>서울과학기술대학교 <br>제1학생회관 3층 어의소극장</div>         
+            <div id="cplogo"></div>
             <div id="credit"> 
                 <div style="font-weight: 600; grid-area: job;">연출<br><br>조연출<br><br><br>배우</div> 
                 <div style="grid-area: name;">이태경<br><br>강지민<br>손예지<br><br>김민경<br>이솔<br>박훈양<br>이은수<br>조승진</div>
 
             </div>         
          
-            <div id="caption"> *  천체가 관측자에게 빠르게 접근할때<br>    나타나는 파장 변화</div>         
-
-            <div class="ttlogo"></div>
+            <div id="caption"> *  천체가 관측자에게 빠르게 접근할때 나타나는 파장 변화</div>         
 
 
 
@@ -229,8 +431,8 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
     </section>
     <section class="imgbg" id="bg2">
         <!-- <div style="position: fixed; top: 0; left: 0; z-index: 11; width: 100px; height: 100px; content: url(./resource/before.png);"></div> -->
-        <div class="col">
-            <div style="mix-blend-mode: overlay; content: url(./resource/2040.svg);"></div>
+        <div class="year">
+            <div id="before"></div>
             <div class="synop">소행성 충돌 10년 전, 멸망을 앞둔 세계.<br>지영은 끝이 정해진 시간 속에서, <br>아이를 낳을 것인가를 두고 마지막 선택 앞에 선다.</div>
         </div>
         </section>
@@ -240,13 +442,13 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
         </div>    
     </section>
     <section class="imgbg" id="bg4">
-        <div class="col">
-             <div style="mix-blend-mode: overlay; content: url(./resource/2060.svg);"></div>
+        <div class="year">
+             <div id="after"></div>
              <div class="synop" style="color: #113340;">소행성 충돌 10년 후, 문명이 붕괴된 세계.<br> 기억을 잃은 채 기적적으로 생존한 소녀는 <br>반려로봇 '아루'와 기억을 되찾기 위해 고군분투 한다.</div>
         </div>
     </section>
     <section class="imgbg" id="bg5">
-        <div style="content: url(./resource/profile.svg); margin: auto; margin-top: 200px; margin-bottom: 300px; position: relative; z-index: 2;"></div>
+        <div id="profile"></div>
     </section>
     <section class="imgbg" id="bg6">
         <div style="width: 300px; margin: auto; margin-top: 200px; "><div style="content: url(./resource/footer.svg);"></div>
@@ -254,9 +456,11 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
                 <div class="footer_cap">서울과학기술대학교<br>제1학생회관 3층<br>어의소극장</div>
                 <div class="footer_cap">2025년 9월<br>3-5일  19:00<br>6일  14:00, 18:30</div>
             </div>
-            <div id="btn">예매하기</div>
+            <div class="btn">일반 예매</div>
+            <div class="btn">노원구민 예매</div>
         </div>
     </section>
+ </div>
  </body>
  </html>
 
@@ -268,6 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const moveFactor = 20; // XY 이동 민감도(px)
   const mouseOverContainer = window;
   const ex1Layer = document.querySelector('.ttlogo');
+
 
   function transforms(x, y, el) {
     const box = el.getBoundingClientRect();
