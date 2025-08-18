@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="use-fixed-bg">
 <head>
 <meta http-equiv="Content-Language" content="ko">
 <link rel="canonical" href="https://어의실험극회.kr/">
 <meta property="og:url" content="https://어의실험극회.kr/">
 <meta property="og:image" content="https://어의실험극회.kr/resource/og-image.jpg">
     <meta charset='utf-8'>
+<link rel="preload" as="image" href="./resource/after.jpeg">
+<link rel="preload" as="image" href="./resource/before.jpeg">
+<link rel="preload" as="image" href="./resource/night.jpeg">
+<link rel="preload" as="image" href="./resource/after2.jpeg">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="color-scheme" content="light only"/>
 	<meta name="supported-color-schemes" content="light"/>
     <title>청색편이</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="theme-color" content="#113340">
       <link rel="icon" type="image/x-icon" href="./resource/footer.svg">
       <link rel="apple-touch-icon" href="./resource/footer.svg">
 
@@ -20,10 +25,9 @@
     <meta property="og:title" content="청색편이 – 제92회 정기공연">
     <meta property="og:description" content="서울과학기술대학교 중앙연극동아리 어의실험극회 제92회 정기공연">
     <!-- NOTE: Prefer an absolute URL for best compatibility -->
-    <meta property="og:image" content="./resource/og-image.jpg">
+    <meta property="og:image" content="https://어의실험극회.kr/resource/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="">
     <meta property="og:locale" content="ko_KR">
 
     <!-- Twitter Card -->
@@ -118,9 +122,6 @@ html, body {
   scroll-behavior: smooth;
   background-color: #113340 !important;
   word-break: keep-all;
-  
-  transform-origin: top left;
-
 }
 
 body {
@@ -131,25 +132,21 @@ body {
   font-synthesis: none;     
 }
 
-body {
-  scroll-snap-type: y mandatory;
+ 
+
+
+
+
+#section{position: absolute; width: 100vw; height: 100vh; margin: 0; overflow: hidden; z-index: 3; position: relative;}
+
+.imgbg{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
 }
-
-section.imgbg {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-
-
-
-html{margin: 0;}
-body{margin: 0;}
-section{position: absolute; width: 100vw; height: 100vh; margin: 0; overflow: hidden; z-index: 3; position: relative;}
-
-.imgbg{width: 100vw; height: 100vh; margin: 0; background-size: cover; background-attachment: fixed;background-position: calc(60%) center;
- }
 #title{position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
     margin: 0; background-color: white; z-index: 11; mix-blend-mode: screen; 
     display: grid; grid-template-columns: 20vw 60vw 20vw; grid-template-rows: 30% 40% 30%; justify-items: center;
@@ -165,6 +162,7 @@ section{position: absolute; width: 100vw; height: 100vh; margin: 0; overflow: hi
 		"   cplogo     .      caption   ";}
 #numb{grid-area: numb; font-size: 20px; font-weight: 600; color: #98CADA; margin-top: 80px;margin-left: 80px; line-height: 150%;}
 #when{
+  
   grid-area: when;
   font-size: 16px;
   font-weight: 400;
@@ -184,10 +182,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   will-change: transform;
 }
 
-#bg1{ background-image: url("./resource/after.jpeg"); z-index: 11;}
-#bg2{background-image: url("./resource/before.jpeg"); z-index: 10;}
-#bg3{background-image: url("./resource/night.jpeg"); z-index: 10;}
-#bg4{background-image: url("./resource/after.jpeg"); z-index: 10;}
+
 #bg5{
   background-image: url("./resource/after2.jpeg");
   background-size: cover;
@@ -200,6 +195,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
+  /* Uniform dim overlay only (no top gradient) */
   background-color: rgba(17,51,64,0.5);
   z-index: 1;
   pointer-events: none; /* 클릭 방해 안 함 */
@@ -220,7 +216,21 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
     #113340 100%
   );
 }
-#profile{width: calc(100vw - 160px); content: url(./resource/profile.svg); margin: auto; margin-top: 200px; margin-bottom: 300px; position: relative; z-index: 2;}
+
+/* Bottom gradient for bg4 (200px, transparent -> #113340) */
+#bg4 { position: relative; }
+#bg4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(17,51,64,0) 0%, rgba(17,51,64,0.5) 100%);
+}
+#profile{width: calc(100vw - 160px); content: url(./resource/profile.svg); margin: auto; padding-top: 200px; padding-bottom: 300px; position: relative; z-index: 2;}
 
 
 #bg6{background-color: #113340; height: 100vh;}
@@ -253,7 +263,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   text-align: center;
   color: #CBE0E3;
   line-height: 80px;
-  margin-top: 80px;
+  margin-top: 16px;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -278,9 +288,6 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
 
 /* ===== Scroll Snap Fixes (added) ===== */
 /* Make sure the actual scroll container has snap enabled */
-html { 
-  scroll-snap-type: y mandatory; /* Some browsers prefer this on html */
-}
 
 /* Ensure each section is exactly one viewport tall so it snaps like pages */
 section.imgbg {
@@ -315,7 +322,6 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
 
 #footer_col{display: flex; flex-direction: column; height: 100vh; justify-content: center; width: 300px; margin: auto;}
 #book1, #book2 { cursor: pointer; }
-#book2{margin-top: 20px;}
 
 
 
@@ -359,7 +365,6 @@ align-items: start;
   #profile{content: url(./resource/m_profile.svg); max-width: 400px;}
 
   #footer_col{max-width: 300px;}
-  .btn{margin-top: 48px;}
 }
 
 /*---------------mobile---------------*/
@@ -409,7 +414,7 @@ align-items: start;
   #credit {
    display: none;
   }
-  #cplogo{margin: auto; margin-bottom: 60px;}
+  #cplogo{margin: auto; margin-bottom: 10vh; }
 
   /* 스티키 섹션: 모바일에선 고정보다 흐르게 */
   #bg2, #bg4 { min-height: auto; }
@@ -426,7 +431,6 @@ align-items: start;
     height: 56px;
     line-height: 56px;
     border-radius: 12px;
-    margin-top: 40px;
     font-size: 16px;
   }
 
@@ -449,20 +453,29 @@ html, body { height: 100%; overflow: hidden; }
 #scroller {
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden; /* added */
   overscroll-behavior-y: contain; /* prevent bounce at top/bottom */
   scroll-snap-type: y mandatory;  /* move snap to the container */
   -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
 }
 
-/* --- Lock layout width to 350px on ultra-narrow viewports (overflow instead of shrink) --- */
-@media (max-width: 350px) {
-  body {
-    transform: scale(calc(100vw / 350));
-    width: 350px;
-  }
+
+
+
+/* === Force light theme; disable dark-mode overrides === */
+:root, html, body { color-scheme: light !important; }
+
+@media (prefers-color-scheme: dark) {
+  :root, html, body { color-scheme: light !important; }
+  /* Ensure our intended background isn’t auto-darkened */
+  body { background-color: #113340 !important; }
 }
-     </style>
-<style>
+
+/* Prevent any auto inversion on media in some UAs */
+img, picture, video, canvas {
+  filter: none !important;
+}
+
 /* === Preloader (covers entire viewport until all assets load) === */
 #preloader {
   position: fixed;
@@ -493,6 +506,45 @@ html, body { height: 100%; overflow: hidden; }
 }
 #preloader .loading-text { margin: 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+
+
+
+/* === Global fixed background (iOS-safe) === */
+#fixed-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+#fixed-bg .layer {
+  position: absolute; inset: 0;
+  background: center/cover no-repeat;
+  opacity: 0; transition: opacity .6s ease;
+  will-change: opacity, background-image, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+#fixed-bg .layer.show { opacity: 1; }
+
+#fixed-dim { position: fixed; inset: 0; z-index: 0;
+  background: rgba(0,0,0,0); pointer-events: none;
+  transition: background-color .25s ease;
+  will-change: background-color;
+}
+
+/* 글로벌 고정 배경을 쓰는 동안, 섹션 자체 배경은 끄기 (중복 방지) */
+html.use-fixed-bg .imgbg {
+  background-image: none !important;
+  background-attachment: scroll !important;
+}
+
+/* #bg1만 섹션 배경 살리기 */
+html.use-fixed-bg #bg1.imgbg {
+  background-image: url("./resource/after.jpeg") !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* 사파리 깨짐 방지 */
+}
+
+/* 본문이 배경 위로 올라오도록 */
+#scroller { position: relative; z-index: 1; }
+
 </style>
  </head>
  <body>
@@ -500,6 +552,8 @@ html, body { height: 100%; overflow: hidden; }
   <div class="spinner"></div>
   <p class="loading-text">Loading…</p>
 </div>
+<div id="fixed-bg"><div class="layer a"></div><div class="layer b"></div></div>
+<div id="fixed-dim"></div>
 <div id="scroller">
     <section class="imgbg" id="bg1">
         <!-- <div style="content: url(./resource/title.png);"></div> -->
@@ -511,8 +565,8 @@ html, body { height: 100%; overflow: hidden; }
             <div id="when"> 2025년 9월 3일 - 6일<br>서울과학기술대학교 <br>제1학생회관 3층 어의소극장</div>         
             <div id="cplogo"></div>
             <div id="credit"> 
-                <div style="font-weight: 600; grid-area: job;">연출<br><br>조연출<br><br><br>배우</div> 
-                <div style="grid-area: name;">이태경<br><br>강지민<br>손예지<br><br>김민경<br>이솔<br>박훈양<br>이은수<br>조승진</div>
+                <div style="font-weight: 600; grid-area: job;">연출<br><br>조연출<br><br><br>기획장<br><br>배우<br><br><br><br><br><br>포스터<br><br>웹사이트</div> 
+                <div style="grid-area: name;">이태경<br><br>강지민<br>손예지<br><br>이승재<br><br>김민경<br>이솔<br>박훈양<br>이은수<br>조승진<br><br>주가을<br><br>조가은</div>
 
             </div>         
          
@@ -544,11 +598,12 @@ html, body { height: 100%; overflow: hidden; }
         <div id="profile"></div>
     </section>
     <section class="imgbg" id="bg6">
-        <div id="footer_col"><div style="content: url(./resource/footer.svg);"></div>
+        <div id="footer_col"><div style="width: 48%; content: url(./resource/footer.svg);"></div>
             <div class="footer">
                 <div class="footer_cap">서울과학기술대학교<br>제1학생회관 3층<br>어의소극장</div>
-                <div class="footer_cap">2025년 9월<br>3-5일  19:00<br>6일  14:00, 18:30</div>
+                <div class="footer_cap">2025년 9월<br>3-5일  19:00<br>6일  14:00, 18:00</div>
             </div>
+            <div style="font-size: 14px; color: #CBE0E3; margin-top: 32px;">*  본 공연은 <b>무료공연</b>입니다.</div>
             <div class="btn" id="book1">일반 예매</div>
             <div class="btn" id="book2">노원구민 예매</div>
         </div>
@@ -624,12 +679,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (star && bg3) {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      if (entry.isIntersecting) {
-        star.style.opacity = '1';
-      } else {
-        star.style.opacity = '0';
-      }
-    }, { threshold: 0.6 });
+      star.style.opacity = entry.isIntersecting ? '1' : '0';
+    }, { threshold: 0.6, root: document.getElementById('scroller') || null });
     observer.observe(bg3);
   }
 }
@@ -710,10 +761,79 @@ document.addEventListener('DOMContentLoaded', () => {
         reset(synop);
       }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.6, root: document.getElementById('scroller') || null });
 
   sections.forEach(sec => observer.observe(sec));
 })();
+
+
+
+// === Global fixed background switcher (iOS-safe) + dim opacity ===
+(() => {
+  const scroller = document.getElementById('scroller');
+  const fixed = document.getElementById('fixed-bg');
+  const dim = document.getElementById('fixed-dim');
+  if (!scroller || !fixed || !dim) return;
+
+  // CSS 훅 활성화: 섹션 배경 끄기
+  document.documentElement.classList.add('use-fixed-bg');
+
+  // 두 장 레이어로 크로스페이드
+  const layers = fixed.querySelectorAll('.layer');
+  let cur = 0;
+
+  // 섹션 ID → 배경 이미지 매핑 (너의 파일 경로 그대로)
+  const map = {
+    bg1: './resource/after.jpeg',
+    bg2: './resource/before.jpeg',
+    bg3: './resource/night.jpeg',
+    bg4: './resource/after.jpeg',
+  };
+
+  function setBg(url){
+    const next = layers[1 - cur];
+    next.style.backgroundImage = `url('${url}')`;
+    next.classList.add('show');
+    layers[cur].classList.remove('show');
+    cur = 1 - cur;
+  }
+
+  // 어떤 섹션이 보이는지 감지 (스냅 컨테이너는 #scroller)
+  const secs = Array.from(document.querySelectorAll('section.imgbg'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+        const id = e.target.id;
+        if (map[id]) setBg(map[id]);
+      }
+    });
+  }, { threshold: [0.6], root: scroller });
+  secs.forEach(s => io.observe(s));
+
+  // 초기 배경
+  if (secs[0] && map[secs[0].id]) {
+    layers[cur].style.backgroundImage = `url('${map[secs[0].id]}')`;
+    layers[cur].classList.add('show');
+  }
+
+  // 스크롤 진행도에 따라 딤(opacity) 조절
+  const MAX = 0.1; // 최대 불투명도
+  function updateDim(){
+    const vh = scroller.clientHeight;
+    let activeRect = null;
+    for (const s of secs) {
+      const r = s.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < vh) { activeRect = r; break; }
+    }
+    if (!activeRect) return;
+    const visible = Math.min(Math.max((vh - activeRect.top) / vh, 0), 1);
+    const opacity = Math.min(visible * MAX, MAX);
+    dim.style.backgroundColor = `rgba(0,0,0,${opacity.toFixed(3)})`;
+  }
+  scroller.addEventListener('scroll', updateDim, { passive: true });
+  updateDim();
+})();
+
 // === Hide preloader after all assets (images, fonts) are loaded ===
 window.addEventListener('load', function() {
   const preloader = document.getElementById('preloader');
