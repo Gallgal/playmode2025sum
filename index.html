@@ -153,7 +153,10 @@ body {
     grid-template-areas:
 		". ttlogo ."
 		"   .    ttlogo    .   "
-		"   .     ttlogo      .   ";}
+		"   .     ttlogo      .   ";
+  align-items: center
+
+}
 #info{position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
     margin: 0; z-index: 12;
     display: grid; grid-template-columns: 20vw 60vw 20vw; grid-template-rows: 30% calc(70% - 80px) 80px; grid-template-areas:
@@ -180,6 +183,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
 .ttlogo{ grid-area: ttlogo; content: url(./resource/title.svg); height:calc(100vh - 160px); margin: 80px; align-items: center; transform: translateX(-50px) perspective(10000px);   transform-origin: center center;
     transition: transform 0.1s ease-out;
   will-change: transform;
+  
 }
 
 
@@ -230,7 +234,7 @@ font-size: 16px; font-weight: 400; color: #113340; line-height: 180%; margin-top
   z-index: 2;
   background: linear-gradient(to bottom, rgba(17,51,64,0) 0%, rgba(17,51,64,0.5) 100%);
 }
-#profile{width: calc(100vw - 160px); content: url(./resource/profile.svg); margin: auto; padding-top: 200px; padding-bottom: 300px; position: relative; z-index: 2;}
+#profile{width: calc(100vw - 160px); content: url(./resource/profile.svg); margin: auto; padding-top: 15vh; padding-bottom: 40vh; position: relative; z-index: 2;}
 
 
 #bg6{background-color: #113340; height: 100vh;}
@@ -339,7 +343,6 @@ section.imgbg { scroll-snap-align: start; scroll-snap-stop: always; }
 	" . . "
   "ttlogo ttlogo"
   " .  . ";
-align-items: start;
    }
 .ttlogo{height: 75vh; width: calc(100vw - 160px); margin: auto;}
 #credit{display: none;}
@@ -381,7 +384,7 @@ align-items: start;
 
             width: 100vw;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 10% 80% 10%;
+        grid-template-rows: 20vh 60vh 20vh;
         grid-template-areas:
         " . . "
   "ttlogo ttlogo"
@@ -390,6 +393,7 @@ align-items: start;
   }
   .ttlogo {
     width: 90vw;
+    height: unset;
     margin: 5vw;
     transform: none;                 /* 모바일에선 3D 기울임 제거 */
     transition: none;
@@ -406,7 +410,7 @@ align-items: start;
   " . . "
   " cplogo  cplogo ";
     align-items: start;
-    grid-template-rows: 15vh 75vh 10vh;
+    grid-template-rows:  20vh 60vh 20vh;
   }
   #numb, #when, #credit, #caption { margin: 0; }
   #caption{display: none;}
