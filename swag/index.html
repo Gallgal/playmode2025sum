@@ -46,7 +46,7 @@
     #hover-zone { position: fixed; top: 0; left: 0; width: 100vw; height: 10vh; z-index: 1002; background: transparent; }
     #navbar { position: fixed; top: 0; left: 0; width: 100vw; height: 10vh; transform: translateY(-100%); transition: transform .28s ease; z-index: 1003; pointer-events: none; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); background-color: rgba(203,224,227,0.001); isolation: isolate; }
     #navbar.open, #navbar:focus-within { transform: translateY(0); pointer-events: auto; }
-    #navbar::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(152,202,218,1) 0%, rgba(152,202,218,0) 100%); mix-blend-mode: multiply; }
+    #navbar::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(152,202,218,1) 0%, rgba(152,202,218,0) 100%); mix-blend-mode: multiply; }
     #navbar .nav-inner { position: relative; z-index: 1; height: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 0 80px; }
     #navbar .nav-left { display: flex; align-items: center; }
     #navbar .nav-logo { width: 110px; height: 5vh; background: url('../resource/home.svg') no-repeat left / contain; filter: brightness(0) invert(1); }
