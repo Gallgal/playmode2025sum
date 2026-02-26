@@ -740,6 +740,16 @@ p { margin: 0; }
 }
 
 @media (max-width: 740px) {
+  html,
+  body {
+    scroll-snap-type: none;
+  }
+
+  section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
   .page { width: calc(100% - 20px); padding: 0 0 38px; }
   section { padding: 122px 16px; border-radius: 18px; }
   #hero {
@@ -1151,7 +1161,7 @@ p { margin: 0; }
     <section id="join" class="join-section" aria-label="지원 안내">
       <img class="join-logo" src="./resource/logo.svg" alt="어의실험극회 로고" loading="lazy">
       <h2 class="join-title en" lang="en">Wanna join us?</h2>
-      <button class="cta join-cta" type="button" onclick="alert('모집 예정입니다!')">어실극의 자랑스러운 49기 지원하기</button>
+      <a class="cta join-cta" href="https://forms.gle/jR2rRJJyMfYLc1Ls7" target="_blank" rel="noopener noreferrer">자랑스러운 49기 지원하기</a>
     </section>
   </main>
   <script>
